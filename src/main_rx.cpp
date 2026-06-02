@@ -65,7 +65,7 @@ volatile bool manchLastWasShort = false;
 // Variable compartida entre la tarea del ADC y el loop para saber si hay luz AHORA
 volatile bool laserDetected = false;
 
-// Variables para el botón del RX
+// Variables para el boton del RX
 bool targetingModeRx = false;
 int lastButtonState = HIGH;
 unsigned long lastDebounceTime = 0;
@@ -357,7 +357,7 @@ void setup() {
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
 
-  // Configuramos el botón
+  // Configuramos el boton
   pinMode(PIN_BUTTON, INPUT_PULLUP);
 
   pinMode(PIN_LED_R, OUTPUT); pinMode(PIN_LED_G, OUTPUT); pinMode(PIN_LED_B, OUTPUT);
@@ -377,7 +377,7 @@ void setup() {
 }
 
 void loop() {
-  // 1. Lógica del botón de Modo Direccionamiento RX
+  // 1. Logica del boton de Modo Direccionamiento RX
   int reading = digitalRead(PIN_BUTTON);
   if (reading != lastButtonState) {
     lastDebounceTime = millis();
@@ -403,14 +403,14 @@ void loop() {
 
   // 2. Control del LED
   if (targetingModeRx) {
-    // Modo Direccionamiento: Azul si el láser incide, apagado si no.
+    // Modo Direccionamiento: Azul si el laser incide, apagado si no.
     if (laserDetected) {
       setLed(false, false, true); // Azul
     } else {
       setLed(false, false, false); // Apagado
     }
   } else {
-    // Modo Normal: Manejo de estado por conexión (Rojo/Verde/Amarillo)
+    // Modo Normal: Manejo de estado por conexion (Rojo/Verde/Amarillo)
     updateLed();
   }
 

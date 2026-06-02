@@ -8,7 +8,7 @@ constexpr int PIN_BUTTON = 4;
 
 // Manchester a 20 bps => 1 bit = 50 ms, medio bit = 25 ms
 constexpr unsigned long BIT_HALF_MS = 25;    
-// El tiempo bajó a 20s gracias a la compresión binaria
+// El tiempo bajo a 20s gracias a la compresion binaria
 constexpr unsigned long TX_PERIOD_MS = 20000;   
 
 constexpr uint8_t PREAMBLE_BYTE = 0x55;   
@@ -123,7 +123,7 @@ void sendFrame() {
   TelemetryData payload;
   buildMockPayload(payload);
 
-  // Calculamos el tamaño total: 34 bytes de datos + 4 bytes de CRC
+  // Calculamos el tamano total: 34 bytes de datos + 4 bytes de CRC
   uint16_t frameLen = sizeof(TelemetryData) + sizeof(uint32_t);
   uint8_t frameBuffer[frameLen];
 
@@ -138,7 +138,7 @@ void sendFrame() {
 
   manchesterSendFrame(frameBuffer, frameLen);
 
-  Serial.printf("[TX] Trama binaria enviada. Seq: %lu | Tamaño: %d bytes\n", payload.seq, frameLen);
+  Serial.printf("[TX] Trama binaria enviada. Seq: %lu | Tamano: %d bytes\n", payload.seq, frameLen);
 }
 
 }  // namespace
@@ -166,7 +166,7 @@ void setup() {
 }
 
 void loop() {
-  // 1. LECTURA DEL BOTÓN CON ANTI-REBOTE
+  // 1. LECTURA DEL BOTON CON ANTI-REBOTE
   int reading = digitalRead(PIN_BUTTON);
   if (reading != lastButtonState) {
     lastDebounceTime = millis();
@@ -196,7 +196,7 @@ void loop() {
   }
   lastButtonState = reading;
 
-  // 2. LÓGICA DE TRANSMISIÓN (Solo si NO estamos en modo apuntado)
+  // 2. LOGICA DE TRANSMISION (Solo si NO estamos en modo apuntado)
   if (!targetingMode) {
     if (txPending) {
       txPending = false;

@@ -151,7 +151,7 @@ void handleFrame(uint8_t *buffer, uint16_t len) {
   lastRxOkMs = millis();
 }
 
-void readUartFrames() {
+void readDecodedFrames() {
   bool ready = false;
   uint16_t len = 0;
   portENTER_CRITICAL(&rxMux);
@@ -290,7 +290,7 @@ body{font-family:Segoe UI,Arial,sans-serif;background:#0f172a;color:#e2e8f0;marg
 </head><body>
 <div class="header">
   <h2 style="margin:0">FSO Telemetria Solar (RX)</h2>
-  <div class="small" style="text-align:right">Último dato:<br><b id="time" style="font-size:14px;color:#e2e8f0">--:--:--</b></div>
+  <div class="small" style="text-align:right">Ultimo dato:<br><b id="time" style="font-size:14px;color:#e2e8f0">--:--:--</b></div>
 </div>
 <div class="grid">
 <div class="card"><div class="small">Potencia</div><div class="big" id="p">--</div></div>
@@ -415,7 +415,7 @@ void loop() {
   }
 
   // 3. Procesamiento normal de tramas y red
-  readUartFrames();
+  readDecodedFrames();
   updateQuality();
   server.handleClient();
 

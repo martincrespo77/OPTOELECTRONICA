@@ -16,8 +16,8 @@ practica de comunicacion laser:
 - `docs/`: documentacion tecnica vigente del enlace.
 
 La documentacion vieja basada en MicroPython, JSON por UART y pruebas cableadas de
-1200 baudios queda obsoleta para esta practica. Si se necesita como antecedente, se
-mantiene fuera del repo activo en el respaldo local creado durante la migracion.
+1200 baudios queda obsoleta para esta practica. No se mantiene duplicada en el repo
+activo porque contradice el protocolo vigente.
 
 ## Estado actual
 
@@ -102,6 +102,7 @@ http://192.168.4.1/api/state
 
 ## Documentacion tecnica
 
+- [Documento tecnico y trazabilidad](docs/DOCUMENTO_TECNICO_OPTOELECTRONICA.md)
 - [Contrato de trama](docs/CONTRATO_TRAMA.md)
 - [Plan de pruebas](docs/PRUEBAS.md)
 - [Arquitectura](docs/ARQUITECTURA.md)

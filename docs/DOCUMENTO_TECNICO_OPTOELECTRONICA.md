@@ -55,7 +55,7 @@ La idea conservadora fue avanzar de lo conocido a lo especifico:
 ## 3. Diagrama de bloques del sistema
 
 ```mermaid
-flowchart LR
+flowchart TD
   subgraph ALIM_TX["Alimentacion TX — Bateria 9V"]
     V5_TX(["5 V"])
     V33_TX(["3.3 V"])
